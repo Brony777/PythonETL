@@ -30,3 +30,10 @@ def GiveMeAllAvaiableSensor (Stations):
     for StId in Stations.itertuples():
         AvaiableSensors = 'https://api.gios.gov.pl/pjp-api/rest/station/sensors/'+str(StId.id)
         return pd.DataFrame(GetDataFromApi(AvaiableSensors))
+
+
+def GiveMeDataFromStationsSensors(SensorCollections):
+    for sensorid in SensorCollections.itertuples():
+        DataFromSensor = 'https://api.gios.gov.pl/pjp-api/rest/data/getData/'+str(sensorid.id)
+        print(DataFromSensor)
+        return pd.DataFrame(GetDataFromApi(DataFromSensor))
